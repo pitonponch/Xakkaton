@@ -2,13 +2,13 @@
 import telebot
 from telebot import types
 
-bot = telebot.TeleBot('')
+bot = telebot.TeleBot('5002670071:AAE9j6ruQYg-9QZZPtxSc0i7YFVhSU4NLMg')
 
 @bot.message_handler(commands=["start"])
 def start(m):
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    keyboard.add(*[types.KeyboardButton(name) for name in ['Верхняя неделя', 'Нижняя неделя', 'Сессия/Практика', 'Звонки']])
-    bot.send_message(m.chat.id, 'Привет друг мой', reply_markup=keyboard)
+    keyboard.add(*[types.KeyboardButton(name) for name in ['Верхняя неделя', 'Нижняя неделя', 'Сессия/Практика', 'Расписание звонков']])
+    bot.send_message(m.chat.id, 'Приветствую, мой дорогой друг, я бот Гена, что тебе сегодня требуется? Расписание? - тогда какая неделя? Может у тебя практика или сессия? Или тебе нужно расписание звонки?', reply_markup=keyboard)
 
 @bot.message_handler(content_types=['text'])
 def message(message):
@@ -24,9 +24,9 @@ def message(message):
         keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
         keyboardgostart.add(*[types.KeyboardButton(name) for name in ['1 курс', '2 курс', '3 курс', '4 курс']])
         bot.send_message(message.chat.id, 'Какой курс нужен?', reply_markup=keyboardgostart)
-    elif message.text == 'Звонки':
+    elif message.text == 'Расписание звонков':
         keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
-        bot.send_message(message.chat.id, 'Время', reply_markup=keyboardgostart)
+        bot.send_message(message.chat.id, '8:00-10:00', reply_markup=keyboardgostart)
     if message.text == '1 курс':
         keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
         keyboardgostart.add(*[types.KeyboardButton(name) for name in ['Группа 1', 'Группа 2', 'Группа 3', 'Группа 4', 'Группа 5', 'Группа 6', 'Группа 7']])
