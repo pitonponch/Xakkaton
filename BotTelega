@@ -7,7 +7,7 @@ bot = telebot.TeleBot('')
 @bot.message_handler(commands=["start"])
 def start(m):
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    keyboard.add(*[types.KeyboardButton(name) for name in ['Верхняя неделя', 'Нижняя неделя', 'Сессия/Практика']])
+    keyboard.add(*[types.KeyboardButton(name) for name in ['Верхняя неделя', 'Нижняя неделя', 'Сессия/Практика', 'Звонки']])
     bot.send_message(m.chat.id, 'Привет друг мой', reply_markup=keyboard)
 
 @bot.message_handler(content_types=['text'])
@@ -24,5 +24,70 @@ def message(message):
         keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
         keyboardgostart.add(*[types.KeyboardButton(name) for name in ['1 курс', '2 курс', '3 курс', '4 курс']])
         bot.send_message(message.chat.id, 'Какой курс нужен?', reply_markup=keyboardgostart)
+    elif message.text == 'Звонки':
+        keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        bot.send_message(message.chat.id, 'Время', reply_markup=keyboardgostart)
+    if message.text == '1 курс':
+        keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        keyboardgostart.add(*[types.KeyboardButton(name) for name in ['Группа 1', 'Группа 2', 'Группа 3', 'Группа 4', 'Группа 5', 'Группа 6', 'Группа 7']])
+        bot.send_message(message.chat.id, 'Какая группа?', reply_markup=keyboardgostart)
+    elif message.text == '2 курс':
+        keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        keyboardgostart.add(*[types.KeyboardButton(name) for name in ['Группа 1', 'Группа 2', 'Группа 3', 'Группа 4', 'Группа 5', 'Группа 6', 'Группа 7']])
+        bot.send_message(message.chat.id, 'Какая группа?', reply_markup=keyboardgostart)
+    elif message.text == '3 курс':
+        keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        keyboardgostart.add(*[types.KeyboardButton(name) for name in ['Группа 1', 'Группа 2', 'Группа 3', 'Группа 4', 'Группа 5', 'Группа 6', 'Группа 7']])
+        bot.send_message(message.chat.id, 'Какая группа?', reply_markup=keyboardgostart)
+    elif message.text == '4 курс':
+        keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        keyboardgostart.add(*[types.KeyboardButton(name) for name in ['Группа 1', 'Группа 2', 'Группа 3', 'Группа 4', 'Группа 5', 'Группа 6', 'Группа 7']])
+        bot.send_message(message.chat.id, 'Какая группа?', reply_markup=keyboardgostart)
+    if message.text == 'Группа 1':
+        keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        keyboardgostart.add(*[types.KeyboardButton(name) for name in ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суботта', 'Воскресенье']])
+        bot.send_message(message.chat.id, 'Какой день?', reply_markup=keyboardgostart)
+    elif message.text == 'Группа 2':
+        keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        keyboardgostart.add(*[types.KeyboardButton(name) for name in ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суботта', 'Воскресенье']])
+        bot.send_message(message.chat.id, 'Какой день?', reply_markup=keyboardgostart)
+    elif message.text == 'Группа 3':
+        keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        keyboardgostart.add(*[types.KeyboardButton(name) for name in ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суботта', 'Воскресенье']])
+        bot.send_message(message.chat.id, 'Какой день?', reply_markup=keyboardgostart)
+    elif message.text == 'Группа 4':
+        keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        keyboardgostart.add(*[types.KeyboardButton(name) for name in ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суботта', 'Воскресенье']])
+        bot.send_message(message.chat.id, 'Какой день?', reply_markup=keyboardgostart)
+    elif message.text == 'Группа 5':
+        keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        keyboardgostart.add(*[types.KeyboardButton(name) for name in ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суботта', 'Воскресенье']])
+        bot.send_message(message.chat.id, 'Какой день?', reply_markup=keyboardgostart)
+    elif message.text == 'Группа 6':
+        keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        keyboardgostart.add(*[types.KeyboardButton(name) for name in ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суботта', 'Воскресенье']])
+        bot.send_message(message.chat.id, 'Какой день?', reply_markup=keyboardgostart)
+    elif message.text == 'Группа 7':
+        keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        keyboardgostart.add(*[types.KeyboardButton(name) for name in ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суботта', 'Воскресенье']])
+        bot.send_message(message.chat.id, 'Какой день?', reply_markup=keyboardgostart)
+    if message.text == 'Понедельник':
+        keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        bot.send_message(message.chat.id, 'Расписание', reply_markup=keyboardgostart)
+    elif message.text == 'Вторник':
+        keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        bot.send_message(message.chat.id, 'Расписание', reply_markup=keyboardgostart)
+    elif message.text == 'Среда':
+        keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        bot.send_message(message.chat.id, 'Расписание', reply_markup=keyboardgostart)
+    elif message.text == 'Четверг':
+        keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        bot.send_message(message.chat.id, 'Расписание', reply_markup=keyboardgostart)
+    elif message.text == 'Пятница':
+        keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        bot.send_message(message.chat.id, 'Расписание', reply_markup=keyboardgostart)
+    elif message.text == 'Суботта':
+        keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        bot.send_message(message.chat.id, 'Расписание', reply_markup=keyboardgostart)
 
 bot.polling()
