@@ -30,23 +30,23 @@ def message(message):
     if message.text == '1 спец':
         keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
         keyboardgostart.add(*[types.KeyboardButton(name) for name in ['1 курс', '2 курс', '3 курс', '4 курс', 'Назад.']])
-        bot.send_message(message.chat.id, 'Какая группа?', reply_markup=keyboardgostart)
+        bot.send_message(message.chat.id, 'Какой курс?', reply_markup=keyboardgostart)
     elif message.text == '2 спец':
         keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
         keyboardgostart.add(*[types.KeyboardButton(name) for name in ['1 курс', '2 курс', '3 курс', '4 курс', 'Назад.']])
-        bot.send_message(message.chat.id, 'Какая группа?', reply_markup=keyboardgostart)
+        bot.send_message(message.chat.id, 'Какой курс??', reply_markup=keyboardgostart)
     elif message.text == '3 спец':
         keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
         keyboardgostart.add(*[types.KeyboardButton(name) for name in ['1 курс', '2 курс', '3 курс', '4 курс', 'Назад.']])
-        bot.send_message(message.chat.id, 'Какая группа?', reply_markup=keyboardgostart)
+        bot.send_message(message.chat.id, 'Какой курс??', reply_markup=keyboardgostart)
     elif message.text == '4 спец':
         keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
         keyboardgostart.add(*[types.KeyboardButton(name) for name in ['1 курс', '2 курс', '3 курс', '4 курс', 'Назад.']])
-        bot.send_message(message.chat.id, 'Какая группа?', reply_markup=keyboardgostart)
+        bot.send_message(message.chat.id, 'Какой курс?', reply_markup=keyboardgostart)
     elif message.text == '5 спец':
         keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
         keyboardgostart.add(*[types.KeyboardButton(name) for name in ['1 курс', '2 курс', '3 курс', '4 курс', 'Назад.']])
-        bot.send_message(message.chat.id, 'Какая группа?', reply_markup=keyboardgostart)
+        bot.send_message(message.chat.id, 'Какой курс?', reply_markup=keyboardgostart)
     elif message.text == 'Назад.':
         keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
         keyboardgostart.add(*[types.KeyboardButton(name) for name in ['1 спец', '2 спец', '3 спец', '3 спец', '5 спец', 'Назад']])
@@ -129,5 +129,8 @@ def message(message):
     elif message.text == 'Суботта':
         keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
         bot.send_message(message.chat.id, 'Расписание', reply_markup=keyboardgostart)
+    elif message.text == 'Воскресенье':
+        keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        bot.send_message(message.chat.id, 'У тебя выходной!!!! Отдыхай дружище!', reply_markup=keyboardgostart)
 
 bot.polling()
