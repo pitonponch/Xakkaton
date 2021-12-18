@@ -3,15 +3,26 @@ import telebot
 from telebot import types
 
 bot = telebot.TeleBot('5002670071:AAE9j6ruQYg-9QZZPtxSc0i7YFVhSU4NLMg')
-@bot.message_handler(commands=['start'])
-def start(message):
-    bot.send_message(message.chat.id, 'Привет')
 
-bot.polling()
 def main():
     markup = types.ReplyKeyboardMarkup(True)
-    key1 = types.KeyboardButton('Верхняя неделя')
-    key2 = types.KeyboardButton('Нижняя неделя')
+    key1 = types.KeyboardButton('Текст кнопки')
+    key2 = types.KeyboardButton('Текст второй кнопки')
     markup.add(key1)
     markup.add(key2)
     return markup
+
+@bot.message_handler(commands=['start'])
+def start(message):
+    bot.send_message(message.chat.id, 'Приветствую, друг мой', reply_markup=main())
+
+@bot.message_handler(content_types=['text'])
+def cont(message):
+    if message.text == 'Верхняя неделя':
+        bot.send_message(message.chat.id, 'Круто', reply_markup=main())
+    elif message.text == 'Нижняя неделя':
+        bot.send_message(message.chat.id, 'Молодец', reply_markup=main())
+    else:
+        bot.send_message(message.chat.id, 'Я тебя не понимаю', reply_markup=main())
+
+bot.polling()
