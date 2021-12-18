@@ -2,7 +2,7 @@
 import telebot
 from telebot import types
 
-bot = telebot.TeleBot('5002670071:AAE9j6ruQYg-9QZZPtxSc0i7YFVhSU4NLMg')
+bot = telebot.TeleBot('')
 
 def main():
     markup = types.ReplyKeyboardMarkup(True)
