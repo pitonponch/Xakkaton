@@ -10,7 +10,6 @@ def start(m):
     keyboard.add(*[types.KeyboardButton(name) for name in ['Верхняя неделя', 'Нижняя неделя', 'Сессия/Практика']])
     bot.send_message(m.chat.id, 'Привет друг мой', reply_markup=keyboard)
 
-
 @bot.message_handler(content_types=['text'])
 def message(message):
     if message.text == 'Верхняя неделя':
