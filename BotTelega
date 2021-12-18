@@ -4,31 +4,26 @@ from telebot import types
 
 bot = telebot.TeleBot('')
 
-def main():
-    markup = types.ReplyKeyboardMarkup(True)
-    key1 = types.KeyboardButton('Верхняя неделя')
-    key2 = types.KeyboardButton('Нижняя неделя')
-    key3 = types.KeyboardButton('Практика')
-    key4 = types.KeyboardButton('Сессия')
-    markup.add(key1, key2)
-    markup.add(key3, key4)
-    return markup
+@bot.message_handler(commands=["start"])
+def start(m):
+    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    keyboard.add(*[types.KeyboardButton(name) for name in ['Верхняя неделя', 'Нижняя неделя', 'Сессия/Практика']])
+    bot.send_message(m.chat.id, 'Привет друг мой', reply_markup=keyboard)
 
-@bot.message_handler(commands=['Привет'])
-def start(message):
-    bot.send_message(message.chat.id, 'Приветствую, друг мой, я пока что только beta версия настоящего меня!!!', reply_markup=main())
 
 @bot.message_handler(content_types=['text'])
-def cont(message):
+def message(message):
     if message.text == 'Верхняя неделя':
-        bot.send_message(message.chat.id, 'Держите', reply_markup=main())
+        keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        keyboardgostart.add(*[types.KeyboardButton(name) for name in ['1 курс', '2 курс', '3 курс', '4 курс']])
+        bot.send_message(message.chat.id, 'С какого ты курса друг мой?', reply_markup=keyboardgostart)
     elif message.text == 'Нижняя неделя':
-        bot.send_message(message.chat.id, 'Вот ваша информация', reply_markup=main())
-    elif message.text == 'Практика':
-        bot.send_message(message.chat.id, 'Стоит подождать', reply_markup=main())
-    elif message.text == 'Сессия':
-        bot.send_message(message.chat.id, 'Стоит подождать', reply_markup=main())
-    else:
-        bot.send_message(message.chat.id, 'Я тебя не понимаю', reply_markup=main())
+        keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        keyboardgostart.add(*[types.KeyboardButton(name) for name in ['1 курс', '2 курс', '3 курс', '4 курс']])
+        bot.send_message(message.chat.id, 'Какой курс?', reply_markup=keyboardgostart)
+    elif message.text == 'Сессия/Практика':
+        keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        keyboardgostart.add(*[types.KeyboardButton(name) for name in ['1 курс', '2 курс', '3 курс', '4 курс']])
+        bot.send_message(message.chat.id, 'Какой курс нужен?', reply_markup=keyboardgostart)
 
 bot.polling()
