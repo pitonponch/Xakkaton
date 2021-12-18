@@ -10,22 +10,20 @@ def main():
     key2 = types.KeyboardButton('Нижняя неделя')
     key3 = types.KeyboardButton('Практика')
     key4 = types.KeyboardButton('Сессия')
-    markup.add(key1)
-    markup.add(key2)
-    markup.add(key3)
-    markup.add(key4)
+    markup.add(key1, key2)
+    markup.add(key3, key4)
     return markup
 
-@bot.message_handler(commands=['start'])
+@bot.message_handler(commands=['Привет'])
 def start(message):
     bot.send_message(message.chat.id, 'Приветствую, друг мой, я пока что только beta версия настоящего меня!!!', reply_markup=main())
 
 @bot.message_handler(content_types=['text'])
 def cont(message):
     if message.text == 'Верхняя неделя':
-        bot.send_message(message.chat.id, 'Круто', reply_markup=main())
+        bot.send_message(message.chat.id, 'Держите', reply_markup=main())
     elif message.text == 'Нижняя неделя':
-        bot.send_message(message.chat.id, 'Молодец', reply_markup=main())
+        bot.send_message(message.chat.id, 'Вот ваша информация', reply_markup=main())
     elif message.text == 'Практика':
         bot.send_message(message.chat.id, 'Стоит подождать', reply_markup=main())
     elif message.text == 'Сессия':
