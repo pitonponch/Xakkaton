@@ -2,7 +2,7 @@
 import telebot
 from telebot import types
 
-bot = telebot.TeleBot('')
+bot = telebot.TeleBot('5012379596:AAFhXr1RG3eD-1iaJY4O55CIQ0oV5ujl_Hc')
 
 @bot.message_handler(commands=["start"])
 def start(m):
@@ -49,7 +49,7 @@ def message(message):
         bot.send_message(message.chat.id, 'Какой курс?', reply_markup=keyboardgostart)
     elif message.text == 'Назад.':
         keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
-        keyboardgostart.add(*[types.KeyboardButton(name) for name in ['1 спец', '2 спец', '3 спец', '3 спец', '5 спец', 'Назад']])
+        keyboardgostart.add(*[types.KeyboardButton(name) for name in ['1 специал', '2 специал', '3 специал', '3 специал', '5 специал', 'Назад']])
         bot.send_message(message.chat.id, 'Какая у тебя специальность?', reply_markup=keyboardgostart)
     if message.text == '1 курс':
         keyboardgostart = types.ReplyKeyboardMarkup(resize_keyboard=True)
